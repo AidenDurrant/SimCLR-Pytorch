@@ -1,0 +1,5 @@
+data/*
+experiments/*
+src/__pycache__/*
+src/model/__pycache__/*
+saved/*
