@@ -13,16 +13,16 @@ Top-1 Acc / Error of linear evaluation on CIFAR10:
 
 Testing is performed on the CIFAR10 Val set, whilst the Train set is split into Train and Val for tuning.
 
-| Method  | Batch Size | ResNet | Projection Head Dim. | Pre-train Epochs | Pretrain Optim | Finetune Optim |Eval Epochs | Acc(%) |
-| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| SimCLR + Linear eval. | 512 | ResNet18 | 128 | 1000 | LARS | SGD | 100 | 88.53 |
-| SimCLR + Linear eval. | 512 | ResNet18 | 128 | 1000 | LARS | LARS | 100 | 90.47 |
-| SimCLR + Linear eval. | 512 | ResNet34 | 128 | 1000 |  LARS | SGD | 100  | - |
-| SimCLR + Linear eval. | 512 | ResNet34 | 128 | 1000 | LARS | LARS | 100  | - |
-| SimCLR + Linear eval. | 512 | ResNet50 | 128 | 1000 |  LARS | SGD | 100  | - |
-| SimCLR + Linear eval. | 512 | ResNet50 | 128 | 1000 | LARS | LARS | 100  | - |
-| Supervised + Linear eval.| 512 | ResNet18 | 128 | 1000 | LARS | LARS | 100 | 93.63 |
-| Random Init + Linear eval.| 512 | ResNet18 | 128 | 1000 | LARS | LARS | 100 | 26.37 |
+| Method  | Batch Size | ResNet | Projection Head Dim. | Pre-train Epochs | Pretrain Optim | Finetune Optim | Finetune LR | Eval Epochs | Acc(%) |
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
+| SimCLR + Linear eval. | 512 | ResNet18 | 128 | 1000 | LARS | SGD | 0.01 | 100 | 88.53 |
+| SimCLR + Linear eval. | 512 | ResNet18 | 128 | 1000 | LARS | LARS | 0.1 | 100 | 90.47 |
+| SimCLR + Linear eval. | 512 | ResNet50 | 128 | 1000 |  LARS | SGD | 0.01 | 100  | 92.75 |
+| SimCLR + Linear eval. | 512 | ResNet50 | 128 | 1000 | LARS | LARS | 0.1 | 100  | 92.45 |
+| SimCLR + Linear eval. | 512 | ResNet101 | 128 | 1000 |  LARS | SGD | 0.01 | 100  | 93.98 |
+| SimCLR + Linear eval. | 512 | ResNet101 | 128 | 1000 | LARS | LARS | 0.1 | 100  | 93.42 |
+| Supervised + Linear eval.| 512 | ResNet18 | 128 | 1000 | LARS | LARS | 0.1 | 100 | 93.63 |
+| Random Init + Linear eval.| 512 | ResNet18 | 128 | 1000 | LARS | LARS | 0.1 | 100 | 26.37 |
 
 **Note**: For Linear Evaluation the ResNet is frozen (all layers), training is only perfomed on the supervised Linear Evaluation layer.
 
@@ -102,7 +102,7 @@ usage: main.py [-h] [-c MY_CONFIG] [--dataset DATASET]
                [--finetune] [--supervised]
 
 Pytorch SimCLR Args that start with '--' (eg. --dataset) can also be set in a
-config file (/home/msl/Documents/SimCLR-Pytorch/config.conf or specified via -c).
+config file (<PATH>/SimCLR-Pytorch/config.conf or specified via -c).
 Config file syntax allows: key=value, flag=true, stuff=[a,b,c] (for details,
 see syntax at https://goo.gl/R74nmi). If an arg is specified in more than one
 place, then commandline values override config file values which override
