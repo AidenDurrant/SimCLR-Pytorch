@@ -5,7 +5,7 @@ Unofficial Pytorch implemnentation of [SimCLR](https://arxiv.org/pdf/2002.05709.
 Work in progress, replicating results on ImageNet, TinyImageNet, CIFAR, STL10.
 
   * **Author**: Aiden Durrant
-  * **Email**: adurrant@lincoln.ac.uk
+  * **Email**: a.durrant.20@abdn.ac.uk
 
 ### Results:
 
