@@ -352,7 +352,7 @@ def cifar_dataloader(args, dataset_paths):
 
     rnd_grey = transforms.RandomGrayscale(p=args.grey_p)
 
-    normalize = transforms.Normalize(mean=[0.24703223, 0.24348513, 0.26158784],
+    normalize = transforms.Normalize(mean=[0.49139968, 0.48215841, 0.44653091],
                                      std=[0.24703223, 0.24348513, 0.26158784])
 
     # Base train and test augmentaions
