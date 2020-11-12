@@ -166,7 +166,7 @@ optional arguments:
 
 Install dependencies with `requrements.txt`
 
-  `pip install -r requrements.txt`
+  `pip install -r requirements.txt`
 
 ```
 torch
