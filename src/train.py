@@ -424,8 +424,9 @@ def finetune(encoder, mlp, dataloaders, args):
             args.writer.add_scalars(
                 'finetune_lr', {'train': optimiser.param_groups[0]['lr']}, epoch+1)
 
-        valid_loss, valid_acc, valid_acc_top5 = evaluate(
-            encoder, mlp, dataloaders, 'valid', epoch, args)
+        with torch.no_grad():
+            valid_loss, valid_acc, valid_acc_top5 = evaluate(
+                encoder, mlp, dataloaders, 'valid', epoch, args)
 
         # For the best performing epoch, reset patience and save model,
         # else update patience.
